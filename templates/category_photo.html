@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+		{% block content %}
+		<div class="container-fluid pt70 pb70">
+			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+                {% for i in photos %}
+				<div class="fh5co-project masonry-brick">
+					<img src="{{i.image.url}}" style="height: 290px;" alt="Free HTML5 by FreeHTML5.co">
+					<h2>{{i.title}}</h2><small>{{i.created_at}}</small>
+					<p>Views {{i.views}}</p>
+					<h6>{{i.author}}</h6>
+                    <a href="{% url 'details' i.id %}">
+						Read More
+					</a>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+		{% endblock %}
+		
